@@ -26,26 +26,28 @@ public class MorseTranslator {
 	}
 
 	public String translate(String morse) {
-		String s = "";
+		String result = "";
 		// Split string on / (new word)
 		String[] words = morse.split(" / ");
+
 		// Split words on spaces (new character)
 		for (String w : words) {
 			String[] characters = w.split(" ");
-			// add alphabet equivalent for each morse character
+
+			// add alphabet equivalent for each morse character to the result string
 			for (String c : characters) {
 				try {
-					s += morseAlphabet.get(c);
+					result += morseAlphabet.get(c);
 				} catch (Exception e) {
 					System.out.println("Invalid morse character");
 				}
-
 			}
+
 			// add space in between words
-			s += " ";
+			result += " ";
 		}
 
-		return s;
+		return result;
 	}
 
 }
